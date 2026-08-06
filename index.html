@@ -3,99 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>逆袭者市场观察 · 2026-08-05</title>
+<title>逆袭者核心报告 · 2026-08-06</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>
-:root{--bg:#0d1b2a;--card:#1b263b;--gold:#d4af37;--red:#e63946;--green:#2ecc71;--txt:#e0e1dd;--txt2:#778da9;--line:rgba(212,175,55,.2);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;padding:20px;}
-.wrap{max-width:800px;margin:0 auto;}
-header{text-align:center;padding:20px 0;border-bottom:2px solid var(--line);margin-bottom:24px;}
-header h1{font-size:24px;color:var(--gold);}
-header .sub{color:var(--txt2);font-size:13px;margin-top:6px;}
-h2{color:var(--gold);font-size:17px;margin:24px 0 12px;padding-left:10px;border-left:3px solid var(--gold);}
-.kpi-box{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;}
-.kpi .v{font-size:20px;font-weight:700;}
-.kpi .l{font-size:11px;color:var(--txt2);margin-top:4px;}
-table{width:100%;border-collapse:collapse;font-size:12px;background:var(--card);border-radius:8px;overflow:hidden;margin-bottom:16px;}
-th{background:#2a3b55;color:var(--gold);padding:8px;text-align:left;}
-td{padding:7px 8px;border-top:1px solid rgba(255,255,255,.05);}
-.foot{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--txt2);text-align:center;}
-.disclaimer{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:16px;font-size:11px;color:var(--txt2);}
-.disclaimer p{margin:4px 0;}
+  :root {
+    --bg-primary: #0a0e1a;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2236;
+    --border: #1e3a5f;
+    --gold: #d4af37;
+    --gold-light: #f0d878;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --accent-blue: #3b82f6;
+    --accent-red: #ef4444;
+    --accent-green: #22c55e;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.6;
+    min-height:100vh;
+  }
+  .container { max-width:1200px; margin:0 auto; padding:20px; }
+  header {
+    text-align:center; padding:40px 20px;
+    background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 50%, #0a0e1a 100%);
+    border-bottom:2px solid var(--gold);
+    margin-bottom:30px;
+  }
+  h1 { color:var(--gold); font-size:2.2rem; margin-bottom:8px; text-shadow:0 2px 10px rgba(212,175,55,0.3); }
+  .subtitle { color:var(--text-secondary); font-size:0.95rem; }
+  .badge {
+    display:inline-block; padding:4px 12px; border-radius:4px;
+    background:rgba(212,175,55,0.15); color:var(--gold-light);
+    border:1px solid var(--gold); font-size:0.8rem; margin-top:10px;
+  }
+  .card {
+    background:var(--bg-card); border:1px solid var(--border);
+    border-radius:12px; padding:24px; margin-bottom:24px;
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(59,130,246,0.1); }
+  h2 {
+    color:var(--gold); font-size:1.3rem; margin-bottom:16px;
+    border-left:4px solid var(--gold); padding-left:12px;
+  }
+  h3 { color:var(--text-primary); font-size:1.1rem; margin:16px 0 8px; }
+  .grid-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+  .metric-box {
+    background:var(--bg-card-hover); border-radius:8px; padding:16px;
+    text-align:center; border:1px solid var(--border);
+  }
+  .metric-value { font-size:1.6rem; font-weight:bold; }
+  .metric-label { color:var(--text-secondary); font-size:0.85rem; margin-top:4px; }
+  .up { color:var(--accent-green); }
+  .down { color:var(--accent-red); }
+  .gold { color:var(--gold-light); }
+  table { width:100%; border-collapse:collapse; margin-top:12px; font-size:0.9rem; }
+  th { background:rgba(212,175,55,0.1); color:var(--gold); padding:10px; text-align:left; border-bottom:2px solid var(--gold); }
+  td { padding:10px; border-bottom:1px solid var(--border); }
+  tr:hover { background:rgba(59,130,246,0.05); }
+  .news-item { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
+  .news-star { color:var(--gold); font-size:1.1rem; flex-shrink:0; }
+  .news-title { font-weight:bold; color:var(--text-primary); }
+  .news-content { color:var(--text-secondary); font-size:0.9rem; margin-top:4px; }
+  .trigger-box {
+    padding:12px 16px; border-radius:6px; margin-bottom:8px;
+    background:rgba(59,130,246,0.08); border-left:3px solid var(--accent-blue);
+  }
+  .trigger-ok { border-left-color:var(--accent-green); background:rgba(34,197,94,0.08); }
+  .trigger-skip { border-left-color:var(--text-secondary); background:rgba(148,163,184,0.08); }
+  .chart-container { width:100%; height:300px; margin:20px 0; }
+  footer {
+    text-align:center; padding:30px; color:var(--text-secondary);
+    font-size:0.8rem; border-top:1px solid var(--border); margin-top:40px;
+  }
+  @media (max-width:768px) {
+    .grid-3 { grid-template-columns:1fr; }
+    h1 { font-size:1.6rem; }
+    .container { padding:12px; }
+    table { font-size:0.8rem; }
+    td,th { padding:6px; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="container">
+
 <header>
-  <h1>逆袭者市场观察</h1>
-  <div class="sub">2026-08-05 ｜ A股盘后数据整理 ｜ 不构成投资建议</div>
+  <h1>🔱 逆袭者核心报告</h1>
+  <div class="subtitle">复盘日期：2026-08-06（周三）盘后 | 版本：V1.7</div>
+  <div class="badge">内部版 · 禁止对外发布</div>
 </header>
 
-<h2>第1节 · 市场概览</h2>
-<div class="kpi-box">
-  <div class="kpi"><div class="v" style="color:var(--green)">+1.47%</div><div class="l">上证指数</div></div>
-  <div class="kpi"><div class="v" style="color:var(--green)">+1.86%</div><div class="l">深证成指</div></div>
-  <div class="kpi"><div class="v" style="color:var(--green)">+4.78%</div><div class="l">科创50</div></div>
-  <div class="kpi"><div class="v">2.68万亿</div><div class="l">成交额</div></div>
-  <div class="kpi"><div class="v">103家</div><div class="l">涨停</div></div>
-  <div class="kpi"><div class="v">8连板</div><div class="l">传智教育</div></div>
+<!-- 大盘概览 -->
+<div class="card">
+  <h2>📊 大盘概览</h2>
+  <div class="grid-3">
+    <div class="metric-box">
+      <div class="metric-value up">3900.35 <span style="font-size:1rem">+0.57%</span></div>
+      <div class="metric-label">上证指数</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value down">14110.12 <span style="font-size:1rem">-0.24%</span></div>
+      <div class="metric-label">深证成指</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value down">3515.56 <span style="font-size:1rem">-0.55%</span></div>
+      <div class="metric-label">创业板指</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value gold">25,475 亿</div>
+      <div class="metric-label">两市成交（缩量 1,324 亿）</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value up">79</div>
+      <div class="metric-label">涨停家数</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value gold">爱丽家居 10 连板</div>
+      <div class="metric-label">最高连板</div>
+    </div>
+  </div>
+  <div id="indexChart" class="chart-container"></div>
 </div>
 
-<h2>第2节 · 市场回顾</h2>
-<table>
-  <tr><th>指数</th><th>涨跌幅</th></tr>
-  <tr><td>上证指数</td><td style="color:var(--green)">+1.47%</td></tr>
-  <tr><td>深证成指</td><td style="color:var(--green)">+1.86%</td></tr>
-  <tr><td>创业板指</td><td style="color:var(--green)">+1.32%</td></tr>
-  <tr><td>科创50</td><td style="color:var(--green)">+4.78%</td></tr>
-</table>
-<p>两市成交额约 2.68 万亿元，较前一日放量 4514 亿元。全市场超 3700 只个股上涨。涨停 103 只 / 炸板率约 30%。</p>
-
-<h2>第3节 · 情绪阶段判定及依据</h2>
-<p><b>判定：高潮期（连续第二日）</b></p>
-<p>依据：① 涨停 103 家 + 龙头 8 连板双触高潮线；② 科创50 大涨 +4.78%，半导体产业链大面积涨停；③ 但午后炸板率抬升 + 中际旭创 -7.27% 大跌，分歧已现。</p>
-
-<h2>第4节 · 热点板块与产业逻辑</h2>
-
-<p><b>① 半导体/存储芯片</b></p>
-<p>催化：SK海力士HBF标准发布+三大原厂2027产能售罄；美国光模块禁令倒逼国产替代加速。金海通2连板、中巨芯-U/正帆科技20CM涨停，科创50+4.78%确认。</p>
-
-<p><b>② 智能驾驶</b></p>
-<p>催化：《智能网联汽车自动驾驶系统安全要求》强制性国标发布（2027-7-1实施）。索菱股份/浙江世宝/兴民智通/山子高科涨停。</p>
-
-<p><b>③ 贵金属/黄金</b></p>
-<p>催化：现货黄金涨破4150美元/盎司。四川黄金/浩通科技/金诚信等涨停。</p>
-
-<table>
-  <thead><tr><th>个股</th><th>代码</th><th>板块角色</th><th>盘面事实</th></tr></thead>
-  <tbody>
-    <tr><td>传智教育</td><td>003032</td><td>全场最高连板</td><td>8 连板，午后一度炸板</td></tr>
-    <tr><td>金海通</td><td>603061</td><td>半导体设备龙一</td><td>2 连板</td></tr>
-    <tr><td>索菱股份</td><td>002766</td><td>智能驾驶龙一</td><td>国标直接受益</td></tr>
-    <tr><td>中际旭创</td><td>300308</td><td>CPO中军</td><td>-7.27%，成交 675 亿天量</td></tr>
-  </tbody>
-</table>
-
-<h2>第5节 · 资金流事实</h2>
-<p>8-5 当日中际旭创成交额 675 亿元，刷新该股历史天量（来源：财联社）。</p>
-<p>龙虎榜精确金额：未获取。北向资金：2024年8月起已停止例行披露。</p>
-
-<h2>第6节 · 历史案例参照</h2>
-<p><b>H-2026-012（光芯片/CPO）</b>：深度调整后的反弹首日，套牢盘压力导致反弹持续性差。8-5 中际旭创 -7.27% 验证套牢盘压力兑现。</p>
-<p><b>H-2025-004（存储芯片超级周期）</b>：存储涨价全周期中，设备/材料标的涨幅不亚于存储设计。本次国产替代+HBM新增需求逻辑更硬。</p>
-
-<h2>第7节 · 风险提示与免责声明</h2>
-<div class="disclaimer">
-<p>资质声明：本账号不持有证券投资咨询业务资格，不具备证券投资咨询执业资质。</p>
-<p>风险提示：市场有风险，历史规律不代表未来表现，文中提及的板块与个股仅为盘面事实记录，不代表看好或推荐。</p>
-<p>免责声明：本内容基于公开信息由 AI 整理生成，可能存在错误或遗漏；不构成投资建议，不作为任何买卖依据；任何人据此操作，风险自负。</p>
-<p>本公开版已剥离全部交易执行层面的参数与结论，仅保留市场事实记录与产业逻辑分享。</p>
+<!-- 情绪与仓位 -->
+<div class="card">
+  <h2>🎯 情绪周期与仓位</h2>
+  <div class="grid-3">
+    <div class="metric-box">
+      <div class="metric-value gold">高潮期（连续第三日，总量递减）</div>
+      <div class="metric-label">情绪阶段</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value gold">≤30%</div>
+      <div class="metric-label">建议仓位</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">观望偏兑现</div>
+      <div class="metric-label">总体方向</div>
+    </div>
+  </div>
+  <p style="margin-top:16px;color:var(--text-secondary);font-size:0.9rem">
+    R-001 检查：炸板率 22.55%（满足≤40%）；高标出清：爱丽家居10连板仍在，传智教育调整。  <br>
+    R-002 检查：三指数均无跌幅>1.8% → <span class="up">未命中</span>，次日新开仓不降档。
+  </p>
 </div>
 
-<div class="foot">
-<p>逆袭者市场观察 ｜ 2026-08-05 ｜ 数据来源：财联社 / 新浪财经 / 东方财富 / 同花顺</p>
+<!-- 核心新闻 -->
+<div class="card">
+  <h2>📰 核心新闻/要点</h2>
+  <div class="news-item">
+    <div class="news-star">★★★★★</div>
+    <div>
+      <div class="news-title">美股存储盘前集体大跌</div>
+      <div class="news-content">闪迪-8%/西数-13%/SK海力士-6%，A股存储/CPO分化承压，国产替代逻辑强化。</div>
+    </div>
+  </div>
+  <div class="news-item">
+    <div class="news-star">★★★★</div>
+    <div>
+      <div class="news-title">现货黄金涨破4150美元创历史新高</div>
+      <div class="news-content">贵金属板块涨停潮，高盛重申看多。</div>
+    </div>
+  </div>
+  <div class="news-item">
+    <div class="news-star">★★★★</div>
+    <div>
+      <div class="news-title">煤炭板块暴涨4.42%掀涨停潮</div>
+      <div class="news-content">昊华能源/大有能源等涨停，低位周期接棒高位科技。</div>
+    </div>
+  </div>
+  <div class="news-item">
+    <div class="news-star">★★★★</div>
+    <div>
+      <div class="news-title">宇树科技8月7日路演/10日申购</div>
+      <div class="news-content">机器人产业链预热，窗口≤4天。</div>
+    </div>
+  </div>
+  <div class="news-item">
+    <div class="news-star">★★★</div>
+    <div>
+      <div class="news-title">锴威特16.5亿收购晶艺半导体</div>
+      <div class="news-content">半导体并购重组加速，设备/材料端逆势走强。</div>
+    </div>
+  </div>
+  <div class="news-item">
+    <div class="news-star">★★★</div>
+    <div>
+      <div class="news-title">爱丽家居复牌后晋级10连板</div>
+      <div class="news-content">连板高度突破，监管风险累积。</div>
+    </div>
+  </div>
 </div>
+
+<!-- 热点与核心个股 -->
+<div class="card">
+  <h2>🔥 热点与核心个股</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <tr>
+      <th>个股名称</th><th>代码</th><th>所属板块</th><th>题材名称</th>
+      <th>硬逻辑要点</th><th>紫苏叶</th><th>产业链地位</th>
+    </tr>
+    <tr>
+      <td><b>爱丽家居</b></td>
+      <td>603221</td>
+      <td>股权转让</td>
+      <td>连板情绪标杆</td>
+      <td>复牌后10连板，全场空间板</td>
+      <td>否</td>
+      <td>全场风向标</td>
+    </tr>
+    <tr>
+      <td><b>中国神华</b></td>
+      <td>601088</td>
+      <td>煤炭</td>
+      <td>煤炭中军</td>
+      <td>全球最大煤炭生产商+煤电运一体化</td>
+      <td>否</td>
+      <td>煤炭中军</td>
+    </tr>
+    <tr>
+      <td><b>北方华创</b></td>
+      <td>002371</td>
+      <td>半导体设备</td>
+      <td>平台型设备龙头</td>
+      <td>刻蚀/薄膜/清洗全覆盖，设备中军</td>
+      <td>观察池</td>
+      <td>设备中军</td>
+    </tr>
+    <tr>
+      <td><b>中微公司</b></td>
+      <td>688012</td>
+      <td>半导体设备</td>
+      <td>刻蚀设备</td>
+      <td>5nm节点验证中，设备端逆势</td>
+      <td>观察池</td>
+      <td>刻蚀龙一</td>
+    </tr>
+    <tr>
+      <td><b>彤程新材</b></td>
+      <td>603650</td>
+      <td>光刻胶</td>
+      <td>KrF光刻胶</td>
+      <td>国产化率<3%，北京科华龙一</td>
+      <td>核心池</td>
+      <td>光刻胶瓶颈🔴</td>
+    </tr>
+    <tr>
+      <td><b>科翔股份</b></td>
+      <td>300903</td>
+      <td>先进封装</td>
+      <td>PCB/先进封装</td>
+      <td>20CM涨停，先进封装弹性标的</td>
+      <td>否</td>
+      <td>先进封装弹性</td>
+    </tr>
+    <tr>
+      <td><b>传智教育</b></td>
+      <td>003032</td>
+      <td>AI教育/机器人</td>
+      <td>AI培训+宇树映射</td>
+      <td>8连板后调整，教育板块跌幅居前</td>
+      <td>否</td>
+      <td>情绪标杆</td>
+    </tr>
+  </table>
+  </div>
+</div>
+
+<!-- 触发记录 -->
+<div class="card">
+  <h2>⚡ 本日触发记录</h2>
+  <div class="trigger-box trigger-ok"><b>产业链分析：</b>已触发-煤炭板块（条件A：涨停≥6家）</div>
+  <div class="trigger-box trigger-ok"><b>紫苏叶挖掘：</b>已触发-C-a（煤炭），但结论：煤炭不符合紫苏叶标准，未发现标的；C-b/C-c未触发</div>
+  <div class="trigger-box trigger-skip"><b>个股题材挖机：</b>未触发-涨幅未验证</div>
+  <div class="trigger-box trigger-ok"><b>次日验证：</b>已完成-8-5→8-6，情绪基本相符，仓位有效（8/8）</div>
+</div>
+
+<!-- 次日验证对象 -->
+<div class="card">
+  <h2>👁️ 次日验证对象（8-7 周五）</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <tr>
+      <th>代码</th><th>名称</th><th>入选理由</th><th>档位标注</th>
+    </tr>
+    <tr>
+      <td>603221</td>
+      <td><b>爱丽家居</b></td>
+      <td>10连板监管风险，断板与否=全场第一信号</td>
+      <td><span class="gold">【纯风向标】</span></td>
+    </tr>
+    <tr>
+      <td>002371</td>
+      <td><b>北方华创</b></td>
+      <td>半导体设备中军，次日承接=国产替代持续性</td>
+      <td><span class="gold">【条件观察】</span></td>
+    </tr>
+    <tr>
+      <td>688012</td>
+      <td><b>中微公司</b></td>
+      <td>刻蚀龙一，设备端逆势=科技韧性信号</td>
+      <td><span class="gold">【条件观察】</span></td>
+    </tr>
+    <tr>
+      <td>300903</td>
+      <td><b>科翔股份</b></td>
+      <td>先进封装20CM，检验科技弹性</td>
+      <td><span class="gold">【条件观察】</span></td>
+    </tr>
+    <tr>
+      <td>003032</td>
+      <td><b>传智教育</b></td>
+      <td>8连板后调整，教育走弱=情绪降温信号</td>
+      <td><span class="gold">【纯风向标】</span></td>
+    </tr>
+  </table>
+  </div>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85rem">
+    个人盘感栏由用户手填，AI一律留空。次日验证须对填写过的标的做「盘感 vs 系统」对错对照。
+  </p>
+</div>
+
+<footer>
+  <p>逆袭者·AI分析大师 | 编制时间：2026-08-06 18:00</p>
+  <p style="margin-top:4px">内部版 · 禁止对外发布 · 数据来源：公开信息整理</p>
+</footer>
+
+</div>
+
+<script>
+// 指数涨跌柱状图
+var chartDom = document.getElementById('indexChart');
+var myChart = echarts.init(chartDom, 'dark');
+var option = {
+  backgroundColor: 'transparent',
+  title: { text: '三大指数涨跌幅', left: 'center', textStyle: { color: '#d4af37', fontSize: 14 } },
+  tooltip: { trigger: 'axis' },
+  grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+  xAxis: {
+    type: 'category',
+    data: ['上证指数', '深证成指', '创业板指', '科创综指'],
+    axisLabel: { color: '#94a3b8' },
+    axisLine: { lineStyle: { color: '#1e3a5f' } }
+  },
+  yAxis: {
+    type: 'value',
+    axisLabel: { formatter: '{value}%', color: '#94a3b8' },
+    splitLine: { lineStyle: { color: '#1e3a5f', type: 'dashed' } }
+  },
+  series: [{
+    data: [
+      { value: 0.57, itemStyle: { color: '#22c55e' } },
+      { value: -0.24, itemStyle: { color: '#ef4444' } },
+      { value: -0.55, itemStyle: { color: '#ef4444' } },
+      { value: 1.25, itemStyle: { color: '#22c55e' } }
+    ],
+    type: 'bar',
+    barWidth: '50%',
+    label: { show: true, position: 'top', formatter: '{c}%', color: '#e2e8f0' }
+  }]
+};
+myChart.setOption(option);
+window.addEventListener('resize', function() { myChart.resize(); });
+</script>
 
 </body>
 </html>
