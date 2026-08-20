@@ -1,172 +1,154 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>逆袭者每日市场观察 · 2026-08-20（公开版）</title>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=1400">
+<title>逆袭者复盘简图 2026-08-20 横版</title>
 <style>
-:root{--bg:#0f172a;--card:#16213e;--card2:#1a2749;--gold:#c9a227;--gold2:#e6c765;--txt:#dbe2f0;--mut:#8fa0c0;--red:#e5534b;--green:#3fb27f;--line:#2a3a5f}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.65;padding:18px}
-.wrap{max-width:1080px;margin:0 auto}
-header{text-align:center;padding:26px 10px;border-bottom:2px solid var(--gold);margin-bottom:22px}
-header h1{font-size:26px;color:var(--gold2);letter-spacing:3px}
-header .sub{color:var(--mut);margin-top:8px;font-size:13px}
-h2{color:var(--gold2);font-size:20px;border-left:4px solid var(--gold);padding-left:10px;margin:26px 0 14px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:8px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center}
-.kpi .v{font-size:24px;font-weight:700;color:var(--gold2)}
-.kpi .v.r{color:var(--red)}.kpi .v.g{color:var(--green)}
-.kpi .l{font-size:12px;color:var(--mut);margin-top:4px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:820px){.grid2{grid-template-columns:1fr}}
-.chart{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;height:320px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
-.mut{color:var(--mut);font-size:12.5px}
-.up{color:var(--red)}.dn{color:var(--green)}
-ol.news{padding-left:20px}ol.news li{margin-bottom:8px}
-footer{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;color:var(--mut);font-size:12.5px}
-footer .disc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;text-align:left;margin-bottom:14px}
-footer .disc li{margin-bottom:6px}
-table{width:100%;border-collapse:collapse;font-size:13.5px}
-th{background:#1e2c52;color:var(--gold2);padding:9px 8px;text-align:left;border-bottom:1px solid var(--line)}
-td{padding:8px;border-bottom:1px solid #22305a}
-tr:last-child td{border-bottom:none}
-.flowbox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;font-size:13.5px}
-.flowbox .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
-.flowbox .node{border:1px solid var(--gold);border-radius:8px;padding:8px 12px;background:var(--card2)}
-.flowbox .arr{color:var(--gold);font-weight:700}
-</style>
-</head>
-<body>
-<div class="wrap">
-<header>
-<h1>逆袭者每日市场观察 · 2026-08-20</h1>
-<div class="sub">A 股市场情绪与题材结构观察 | 仅供学习研究，不构成投资建议</div>
+:root{
+  --bg:#12141d; --card:#1a1e2c; --card2:#1f2434;
+  --gold:#d4af37; --gold2:#f0c75e; --red:#e84a5f; --green:#2ecc71;
+  --txt:#e8ecf5; --txt2:#9aa0b8; --line:rgba(212,175,55,.25);
+  --na:#5a5f70;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:linear-gradient(180deg,#0b0d14 0%,var(--bg) 45%,#101321 100%);
+  color:var(--txt);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.6;}
+.card{background:linear-gradient(145deg,var(--card),var(--card2));
+  border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);}
+.zone-title{font-size:12px;letter-spacing:2px;color:var(--gold);margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;}
+.zone-title::after{content:"";flex:1;height:1px;background:var(--line);}
+.na{color:var(--na);font-style:normal;}
+.gold{color:var(--gold2);} .red{color:var(--red);} .green{color:var(--green);}
+.big{font-size:44px;font-weight:800;line-height:1.05;color:var(--gold2);}
+small.lbl{font-size:11px;color:var(--txt2);}
+small.lbl.pu{color:#c07fe0;font-size:12.5px;font-weight:700;}
+.tagchip{display:inline-block;font-size:10.5px;padding:1px 8px;border-radius:9px;
+  border:1px solid currentColor;margin:1px 3px 1px 0;white-space:nowrap;}
+table.plain{width:100%;border-collapse:collapse;font-size:12.5px;}
+table.plain td{padding:5px 4px;border-top:1px solid rgba(255,255,255,.06);vertical-align:top;}
+.idx-chip{display:inline-block;background:#262c3e;border-radius:8px;padding:3px 9px;
+  margin:2px 4px 2px 0;font-size:12px;white-space:nowrap;}
+.hot-mini{margin:0 0 10px;border:1px solid rgba(192,127,224,.22);border-radius:10px;
+  padding:8px 10px;background:rgba(12,17,32,.32);}
+.hot-mini-row{display:grid;grid-template-columns:42px minmax(0,1fr);gap:7px;align-items:start;
+  padding:3px 0;border-top:1px solid rgba(255,255,255,.05);}
+.hot-mini-row:first-of-type{margin-top:4px;}
+.hot-mini-date{color:var(--gold2);font-size:11.5px;font-weight:800;line-height:1.9;}
+.hot-mini-body{display:flex;gap:4px;flex-wrap:wrap;min-width:0;}
+.hot-mini-chip{display:inline-flex;align-items:center;gap:3px;max-width:100%;
+  border:1px solid rgba(212,175,55,.18);border-radius:7px;padding:1px 5px;
+  color:var(--txt);font-size:10.5px;line-height:1.45;white-space:nowrap;}
+.hot-mini-chip b{color:var(--gold);font-size:10px;}
+.hot-mini-chip em{color:var(--red);font-style:normal;font-weight:800;}
+.hot-mini-note{font-size:10px;color:var(--txt2);margin-top:4px;}
+footer.foot{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);
+  font-size:10.5px;color:var(--txt2);line-height:1.7;overflow-wrap:anywhere;}
+</style></head><body>
+<div style="max-width:1380px;margin:0 auto;padding:10px 18px 26px;">
+  
+<header style="text-align:center;padding:18px 8px 12px;">
+  <div style="display:inline-block;font-size:10.5px;letter-spacing:3px;color:var(--gold);
+    border:1px solid var(--gold);border-radius:14px;padding:2px 14px;">逆袭者 · 复盘简图 V3.0 · 横版</div>
+  <h1 style="font-size:24px;color:var(--gold2);letter-spacing:2px;margin-top:8px;">2026-08-20（周四）盘后复盘图</h1>
 </header>
-
-<h2>一、市场状态</h2>
-<div class="kpis">
-<div class="kpi"><div class="v r">79</div><div class="l">涨停家数（较前日36家倍增）</div></div>
-<div class="kpi"><div class="v">11</div><div class="l">跌停家数（较前日118家大幅收敛）</div></div>
-<div class="kpi"><div class="v">63.2%</div><div class="l">封板率（炸板46家）</div></div>
-<div class="kpi"><div class="v r">4板</div><div class="l">市场最高连板（连板仅4家）</div></div>
-<div class="kpi"><div class="v">2.08万亿</div><div class="l">两市成交额（缩量约4317亿）</div></div>
-<div class="kpi"><div class="v r">75%</div><div class="l">红盘率（上涨4096家）</div></div>
+  <div style="display:grid;gap:14px;">
+    
+<div class="card">
+  <div class="zone-title">① 复盘日志 · 大盘与策略</div>
+  <div style="display:grid;grid-template-columns:1fr 1.5fr 1.05fr;gap:16px;align-items:start;" class="top3">
+    <div>
+      <small class="lbl pu">大盘趋势判定</small><br><span style="color:var(--red);font-weight:800;font-size:20px;">▲ 上行</span>
+      <div style="margin:6px 0;"><span class="idx-chip">沪指 <b class="red">+0.24%</b> <small style="color:var(--txt2)">3903.72</small></span><span class="idx-chip">深成指 <b class="red">+0.59%</b> <small style="color:var(--txt2)">13972.78</small></span></div>
+      <div style="font-size:12.5px;">成交 <b class="gold">3.36万亿</b>
+        <span style="color:var(--txt2);">(放量8510.27亿（+33.89%）)</span></div>
+      <div style="font-size:11.5px;color:var(--txt2);margin-top:4px;">夏季：情绪较热，防止高潮后分化。</div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);display:flex;gap:14px;align-items:center;">
+        <div style="text-align:center;min-width:92px;"><small class="lbl">建议仓位</small><br><span class="big">20<small style="font-size:18px;">%</small></span><br><span style="color:var(--txt2);">→ 持平</span></div>
+        <div style="font-size:10.5px;color:var(--txt2);flex:1;">10-20%；下个交易日，仅按条件轻仓试错，不追高</div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);"><small class="lbl pu">情绪温度曲线 · 近5日</small><svg viewBox="0 0 238 128" style="width:100%;max-width:238px;display:block;margin:3px auto 0;"><rect x="19.0" y="53.0" width="28" height="39" rx="4" fill="#c0392b" opacity="0.92"><title>2026-08-14 启动期 温度56</title></rect><text x="33.0" y="47.0" fill="#e8ecf5" font-size="11" font-weight="700" text-anchor="middle">56</text><text x="33.0" y="109" fill="#9aa0b8" font-size="9.5" text-anchor="middle">08-14</text><text x="33.0" y="122" fill="#c0392b" font-size="9.5" text-anchor="middle">启动</text><rect x="62.0" y="44.0" width="28" height="48" rx="4" fill="#9b59b6" opacity="0.92"><title>2026-08-17 高潮期 温度68</title></rect><text x="76.0" y="38.0" fill="#e8ecf5" font-size="11" font-weight="700" text-anchor="middle">68</text><text x="76.0" y="109" fill="#9aa0b8" font-size="9.5" text-anchor="middle">08-17</text><text x="76.0" y="122" fill="#9b59b6" font-size="9.5" text-anchor="middle">高潮</text><rect x="105.0" y="59.0" width="28" height="33" rx="4" fill="#c0392b" opacity="0.92"><title>2026-08-18 启动期 温度47</title></rect><text x="119.0" y="53.0" fill="#e8ecf5" font-size="11" font-weight="700" text-anchor="middle">47</text><text x="119.0" y="109" fill="#9aa0b8" font-size="9.5" text-anchor="middle">08-18</text><text x="119.0" y="122" fill="#c0392b" font-size="9.5" text-anchor="middle">启动</text><rect x="148.0" y="70.0" width="28" height="22" rx="4" fill="#7f7f8a" opacity="0.92"><title>2026-08-19 退潮期 温度32</title></rect><text x="162.0" y="64.0" fill="#e8ecf5" font-size="11" font-weight="700" text-anchor="middle">32</text><text x="162.0" y="109" fill="#9aa0b8" font-size="9.5" text-anchor="middle">08-19</text><text x="162.0" y="122" fill="#7f7f8a" font-size="9.5" text-anchor="middle">退潮</text><rect x="191.0" y="46.0" width="28" height="46" rx="4" fill="#9b59b6" opacity="0.92"><title>2026-08-20 高潮期 温度66</title></rect><text x="205.0" y="40.0" fill="#e8ecf5" font-size="11" font-weight="700" text-anchor="middle">66</text><text x="205.0" y="109" fill="#9aa0b8" font-size="9.5" text-anchor="middle">08-20</text><text x="205.0" y="122" fill="#9b59b6" font-size="9.5" text-anchor="middle">高潮</text></svg></div>
+    </div>
+    <div><small class="lbl pu">最强热点板块（龙一 / 龙二 / 中军）</small>
+      <table class="plain" style="margin-top:4px;"><tr><td style="width:30%;"><span style="color:#f0c75e;font-weight:800;white-space:nowrap;">疫苗</span><br><small style="color:var(--txt2);">当日涨幅6.95%；局部扩散；看分歧承接</small></td><td>龙一 <b>安科生物 300009</b><small style="color:var(--txt2);">（板块核心候选；观察价9.85；上榜，单日净买入31795万，需看分歧承接）</small><br>龙二 康泰生物 300601<small style="color:var(--txt2);">（板块跟随候选；观察价14.04；上榜，单日净买入14006万，需看分歧承接）</small><br>中军 沃森生物 300142<small style="color:var(--txt2);">（板块跟随候选；观察价14.67；未上榜，需看分歧承接）</small></td></tr><tr><td style="width:30%;"><span style="color:var(--red);font-weight:800;white-space:nowrap;">基因测序</span><br><small style="color:var(--txt2);">当日涨幅6.3%；局部扩散；看分歧承接</small></td><td>龙一 <b>安科生物 300009</b><small style="color:var(--txt2);">（板块核心候选；观察价9.85；上榜，单日净买入31795万，需看分歧承接）</small><br>龙二 新开源 300109<small style="color:var(--txt2);">（板块跟随候选；观察价15.50；上榜，单日净买入11929万，需看分歧承接）</small><br>中军 华大智造 688114<small style="color:var(--txt2);">（板块跟随候选；观察价67.04；未上榜，需看分歧承接）</small></td></tr><tr><td style="width:30%;"><span style="color:#e8863c;font-weight:800;white-space:nowrap;">体外诊断</span><br><small style="color:var(--txt2);">当日涨幅6.29%；局部扩散；看分歧承接</small></td><td>龙一 <b>安科生物 300009</b><small style="color:var(--txt2);">（板块核心候选；观察价9.85；上榜，单日净买入31795万，需看分歧承接）</small><br>龙二 新开源 300109<small style="color:var(--txt2);">（板块跟随候选；观察价15.50；上榜，单日净买入11929万，需看分歧承接）</small><br>中军 诺唯赞 688105<small style="color:var(--txt2);">（板块跟随候选；观察价24.75；未上榜，需看分歧承接）</small></td></tr></table>
+    </div>
+    <div style="border-left:1px dashed var(--line);padding-left:14px;">
+      <small class="lbl pu">紫苏叶个股 · 新收录（瓶颈核心池）</small>
+      <div style="margin-top:4px;"><div style="font-size:11.5px;color:var(--txt2);padding-top:6px;">本日无新收录</div></div>
+    </div>
+  </div>
 </div>
-<div class="grid2">
-<div class="chart" id="c1"></div>
-<div class="chart" id="c2"></div>
-</div>
-<div class="card" style="margin-top:14px">
-<table>
-<tr><th>维度</th><th>观察结论</th></tr>
-<tr><td>指数</td><td>上证 <span class="up">+0.24%</span>（收 3903.72，仍处 10 日均线下方）/ 深成 <span class="up">+0.59%</span>（仍处 20 日均线下方）/ 创业板 <span class="up">+0.64%</span> / 科创50 <span class="dn">-0.87%</span></td></tr>
-<tr><td>结构</td><td>前一日恐慌（逾百股跌停）后缩量普涨修复；资金从红利防御方向撤出，单边集中至医药一个方向，科创方向逆势走弱</td></tr>
-<tr><td>赚钱效应</td><td>涨停家数倍增但封板率仅六成出头、连板家数仅 4 家、低位晋级率约 10% 低于历史均值——修复质量偏弱，分歧集中在当日最热方向</td></tr>
-</table>
-</div>
-
-<h2>二、热点板块</h2>
-<div class="grid2">
-<div class="chart" id="c3"></div>
-<div class="chart" id="c4"></div>
+    <div style="display:grid;grid-template-columns:1.1fr 1.1fr .9fr;gap:14px;align-items:start;" class="mid3">
+      
+<div class="card">
+  <div class="zone-title">② 核心新闻 → 影响板块（6条）</div>
+  <div style="padding:7px 0;border-top:1px solid rgba(255,255,255,.06);"><div style="font-size:12.5px;"><b class="gold">1.</b> <b>医药医疗：2026-08-20盘后，大智慧Top10中疫苗、基因测序、体外诊断、CRO、多肽药、创新药等集中上榜</b></div><div style="font-size:11.5px;color:var(--txt2);margin:2px 0;">医药医疗｜疫苗类涨停15、基因测序11、体外诊断11、CRO9、多肽药6、创新药19；安科生物、康泰生物、新开源、博腾股份上榜且净买入｜已获取</div><div><span style="font-size:10.5px;color:var(--txt2);">可能影响：</span><span class="tagchip" style="color:#8a94a8">医药医疗</span><span class="tagchip" style="color:#f0c75e">疫苗</span><span class="tagchip" style="color:#4fb3a9">基因测序</span></div></div><div style="padding:7px 0;border-top:1px solid rgba(255,255,255,.06);"><div style="font-size:12.5px;"><b class="gold">2.</b> <b>医药医疗：2026-08-07以来CRO/创新药上涨背景</b></div><div style="font-size:11.5px;color:var(--txt2);margin:2px 0;">医药医疗｜行业订单、业绩修复可解释中期背景，但不是8月20日新增大新闻｜需验证</div><div><span style="font-size:10.5px;color:var(--txt2);">可能影响：</span><span class="tagchip" style="color:#8a94a8">医药医疗</span></div></div><div style="padding:7px 0;border-top:1px solid rgba(255,255,255,.06);"><div style="font-size:12.5px;"><b class="gold">3.</b> <b>铰链：2026-08-20盘后Top10第10</b></div><div style="font-size:11.5px;color:var(--txt2);margin:2px 0;">铰链｜原生成分8、已取行情8、类涨停2，强度弱于医药链｜已获取</div><div><span style="font-size:10.5px;color:var(--txt2);">可能影响：</span><span class="tagchip" style="color:#8a94a8">铰链</span></div></div><div style="padding:7px 0;border-top:1px solid rgba(255,255,255,.06);"><div style="font-size:12.5px;"><b class="gold">4.</b> <b>泰恩康</b></div><div style="font-size:11.5px;color:var(--txt2);margin:2px 0;">新闻快速汇总｜同花顺｜全资子公司注射用顺铂聚合物胶束获临床试验批准通知书：泰恩康公告，公司全资子公司山东华铂凯盛生物科技有限公司近日收到国家药品监督管理局签发的《药物临床试验批准通…</div><div><span style="font-size:10.5px;color:var(--txt2);">可能影响：</span><span class="tagchip" style="color:#8a94a8">需验证</span></div></div><div style="padding:7px 0;border-top:1px solid rgba(255,255,255,.06);"><div style="font-size:12.5px;"><b class="gold">5.</b> <b>ST能特</b></div><div style="font-size:11.5px;color:var(--txt2);margin:2px 0;">新闻快速汇总｜同花顺｜部分回购股份注销完成，注销5938.21万股：ST能特公告，公司此前审议通过回购方案，拟以不低于3亿元且不超过5亿元回购股份，回购价格不超过4.7元/股，全部…</div><div><span style="font-size:10.5px;color:var(--txt2);">可能影响：</span><span class="tagchip" style="color:#8a94a8">金融/券商/基金</span></div></div><div style="padding:7px 0;border-top:1px solid rgba(255,255,255,.06);"><div style="font-size:12.5px;"><b class="gold">6.</b> <b>腾达科技</b></div><div style="font-size:11.5px;color:var(--txt2);margin:2px 0;">新闻快速汇总｜同花顺｜2026年上半年净利润2628.04万元，同比下降33.18%：腾达科技公告，2026年上半年营业收入10.57亿元，同比增长6.76%。归属于上市公司股东的…</div><div><span style="font-size:10.5px;color:var(--txt2);">可能影响：</span><span class="tagchip" style="color:#8a94a8">需验证</span></div></div>
 </div>
 <div class="card">
-<table>
-<tr><th>板块</th><th>涨停家数</th><th>驱动逻辑</th></tr>
-<tr><td>医药（含疫苗概念）</td><td>38</td><td>海外药企 mRNA 癌症疫苗三期临床达到主要终点，产业链映射</td></tr>
-<tr><td>机器人</td><td>7</td><td>互联网平台宣布机器人长期投入规划；新股标杆次日大跌后板块分化</td></tr>
-<tr><td>大消费</td><td>6</td><td>7 月社零数据公布，增速温和</td></tr>
-<tr><td>房地产</td><td>3</td><td>上海优化地产政策+公积金条例修订倒计时（较前一日收缩）</td></tr>
-<tr><td>通信</td><td>3</td><td>算力产业链余热，强度有限</td></tr>
-</table>
+  <div class="zone-title">③ 明日交易计划 · 行情盘面</div>
+  
+  <div style="border:1px solid var(--gold);border-radius:10px;padding:9px 11px;margin-bottom:10px;
+    background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(13,24,54,.55));">
+    <small class="lbl pu">明日交易计划 · 全篇结论</small>
+    <div style="font-size:12px;line-height:1.75;margin-top:4px;">
+      <b class="gold">观察对象</b>｜医药医疗。<br>
+      <b class="gold">触发条件</b>｜疫苗等相关板块至少2个留在Top10，核心股多数守观察价，并出现分歧承接。<br>
+      <b class="gold">回避条件</b>｜相关板块退出Top10，核心股多数跌破观察价，只剩单股独涨，或数据质量降级。
+    </div>
+  </div>
+  
+<div class="hot-mini">
+  <small class="lbl pu">热点轮动日历 · 近5日Top5题材/类涨停家数</small>
+  
+  <div class="hot-mini-row">
+    <span class="hot-mini-date">08-14</span>
+    <div class="hot-mini-body"><span class="hot-mini-chip"><b>1</b>电子布<em>1家</em></span><span class="hot-mini-chip"><b>2</b>5.5G概念<em>3家</em></span><span class="hot-mini-chip"><b>3</b>光芯片<em>2家</em></span><span class="hot-mini-chip"><b>4</b>激光概念<em>2家</em></span><span class="hot-mini-chip"><b>5</b>光纤光缆<em>4家</em></span></div>
+  </div>
+  <div class="hot-mini-row">
+    <span class="hot-mini-date">08-17</span>
+    <div class="hot-mini-body"><span class="hot-mini-chip"><b>1</b>HBM概念<em>3家</em></span><span class="hot-mini-chip"><b>2</b>NPU<em>1家</em></span><span class="hot-mini-chip"><b>3</b>大基金概念<em>5家</em></span><span class="hot-mini-chip"><b>4</b>CPO概念<em>4家</em></span><span class="hot-mini-chip"><b>5</b>培育钻石<em>2家</em></span></div>
+  </div>
+  <div class="hot-mini-row">
+    <span class="hot-mini-date">08-18</span>
+    <div class="hot-mini-body"><span class="hot-mini-chip"><b>1</b>种业<em>12家</em></span><span class="hot-mini-chip"><b>2</b>转基因<em>9家</em></span><span class="hot-mini-chip"><b>3</b>农林牧渔<em>16家</em></span><span class="hot-mini-chip"><b>4</b>水产品<em>1家</em></span><span class="hot-mini-chip"><b>5</b>人造肉概念<em>2家</em></span></div>
+  </div>
+  <div class="hot-mini-row">
+    <span class="hot-mini-date">08-19</span>
+    <div class="hot-mini-body"><span class="hot-mini-chip"><b>1</b>能源加工<em>5家</em></span><span class="hot-mini-chip"><b>2</b>银行类<em>0家</em></span><span class="hot-mini-chip"><b>3</b>港口运输<em>1家</em></span><span class="hot-mini-chip"><b>4</b>煤炭石油<em>1家</em></span><span class="hot-mini-chip"><b>5</b>保险<em>0家</em></span></div>
+  </div>
+  <div class="hot-mini-row">
+    <span class="hot-mini-date">08-20</span>
+    <div class="hot-mini-body"><span class="hot-mini-chip"><b>1</b>疫苗<em>15家</em></span><span class="hot-mini-chip"><b>2</b>基因测序<em>11家</em></span><span class="hot-mini-chip"><b>3</b>体外诊断<em>11家</em></span><span class="hot-mini-chip"><b>4</b>CRO概念<em>9家</em></span><span class="hot-mini-chip"><b>5</b>抗原检测<em>9家</em></span></div>
+  </div>
+  <div class="hot-mini-note">口径：大智慧Top10原生成分扩散统计；涨停家数使用报告中的「类涨停」列。</div>
 </div>
-
-<h2>三、核心新闻</h2>
-<div class="card"><ol class="news">
-<li>两家海外药企联合宣布：全球首个 mRNA 癌症疫苗三期临床（千例级高危黑色素瘤术后辅助治疗）同时达到无复发生存期与无远处转移生存期主要终点，相关企业股价大幅上涨；需注意目前仅公布顶线结果，完整数据尚待医学会议披露，且该疗法属于术后防复发辅助治疗。</li>
-<li>亚太市场反弹：韩国综合指数盘中涨幅触发向上熔断（约 +6%），前一日的外围恐慌情绪暂缓。</li>
-<li>焦炭提涨正式执行日：期货 8 月以来累计涨逾 10%，但 A 股相关板块当日领跌，再度呈现「利好兑现日即回落」的期股背离特征。</li>
-<li>备受关注的国产机器人新股上市次日大跌约 19%，换手率超过 85%，市值单日明显缩水。</li>
-<li>上海出台房地产优化政策；7 月社会消费品零售总额同比 +0.6%；某电商平台宣布 2028 年前百亿级机器人投入规划。</li>
-</ol></div>
-
-<h2>四、情绪定位</h2>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;" class="panmian">
+    <div style="text-align:center;padding:0 10px 0 2px;border-right:1px dashed var(--line);">
+      <small class="lbl">情绪温度</small><br><span style="font-size:40px;font-weight:800;line-height:1.05;color:#ffffff;">66</span>
+      <div style="font-size:9.5px;color:var(--txt2);">0 冰点 · 100 沸腾</div>
+    </div>
+    <div style="padding:0 12px;border-right:1px dashed var(--line);white-space:nowrap;">
+      <small class="lbl">量能变化</small>　<span style="font-weight:800;font-size:14px;white-space:nowrap;">放量8510.27亿（+33.89%）</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(62px,1fr));gap:5px 6px;flex:1;"><div style="text-align:center;min-width:70px;"><small class="lbl">上涨家数</small><br><span class="red" style="font-weight:800;font-size:15px;">3,916</span></div><div style="text-align:center;min-width:70px;"><small class="lbl">下跌家数</small><br><span class="green" style="font-weight:800;font-size:15px;">1,204</span></div><div style="text-align:center;min-width:70px;"><small class="lbl">两市成交额</small><br><span class="gold" style="font-weight:800;font-size:15px;">3.36万亿</span></div><div style="text-align:center;min-width:70px;"><small class="lbl">涨停</small><br><span class="red" style="font-weight:800;font-size:15px;">82</span></div><div style="text-align:center;min-width:70px;"><small class="lbl">跌停</small><br><span class="green" style="font-weight:800;font-size:15px;">12</span></div></div>
+  </div>
+  <div style="margin-top:6px;"><small class="lbl pu">风口板块（板块 — 龙头/中军 — 硬逻辑）</small><div style="padding:6px 0;border-top:1px solid rgba(255,255,255,.06);font-size:12px;"><span style="color:#f0c75e;font-weight:800;">疫苗</span><span style="color:var(--txt2);"> ｜ 龙头 <span style="color:#ffffff;font-weight:700;">安科生物</span>300009 · 中军 <span style="color:#ffffff;font-weight:700;">沃森生物</span>300142</span><br><span style="color:var(--txt2);">硬逻辑：局部扩散；明日动作：看分歧承接</span></div><div style="padding:6px 0;border-top:1px solid rgba(255,255,255,.06);font-size:12px;"><span style="color:#4fb3a9;font-weight:800;">基因测序</span><span style="color:var(--txt2);"> ｜ 龙头 <span style="color:#ffffff;font-weight:700;">安科生物</span>300009 · 中军 <span style="color:#ffffff;font-weight:700;">华大智造</span>688114</span><br><span style="color:var(--txt2);">硬逻辑：局部扩散；明日动作：看分歧承接</span></div><div style="padding:6px 0;border-top:1px solid rgba(255,255,255,.06);font-size:12px;"><span style="color:#e8863c;font-weight:800;">体外诊断</span><span style="color:var(--txt2);"> ｜ 龙头 <span style="color:#ffffff;font-weight:700;">安科生物</span>300009 · 中军 <span style="color:#ffffff;font-weight:700;">诺唯赞</span>688105</span><br><span style="color:var(--txt2);">硬逻辑：局部扩散；明日动作：看分歧承接</span></div></div>
+  
+  <div style="margin-top:8px;"><small class="lbl pu">昨日风口 · 今日变化（对比）</small><div style="padding:4px 0;border-top:1px solid rgba(255,255,255,.06);font-size:11.5px;"><b>能源加工</b> <span style="color:var(--txt2);">→ 退出Top10，热点轮动切出</span></div><div style="padding:4px 0;border-top:1px solid rgba(255,255,255,.06);font-size:11.5px;"><b>银行类</b> <span style="color:var(--txt2);">→ 退出Top10，热点轮动切出</span></div><div style="padding:4px 0;border-top:1px solid rgba(255,255,255,.06);font-size:11.5px;"><b>港口运输</b> <span style="color:var(--txt2);">→ 退出Top10，热点轮动切出</span></div></div>
+</div>
 <div class="card">
-<table>
-<tr><th>项目</th><th>观察</th></tr>
-<tr><td>情绪阶段</td><td><b style="color:#e6c765">修复向发酵过渡</b>：涨停家数回到 79 家、跌停收敛至 11 家，主要情绪指标进入「发酵期」统计区间；但深证成指仍处 20 日均线下方，中期趋势尚未修复，两类信号并存</td></tr>
-<tr><td>风格特征</td><td>「哑铃翻转」：前一日的红利防御方向（银行/煤炭/农业）全线回落，资金高切低集中涌入医药；20cm 弹性品种主导涨停榜</td></tr>
-<tr><td>历史参照</td><td>海外产业事件驱动 A 股映射的经验：若 A 股标的不存在即期订单兑现路径，行情高度依赖后续催化接力，催化日历断档时持续性通常有限；「利好兑现日即回落」的期股背离规律近两日连续出现</td></tr>
-<tr><td>次日看点</td><td>医药方向今日炸板家数较多，明日竞价承接是映射行情能否延续的关键；上证能否收复 10 日均线；跌停家数能否维持低位</td></tr>
-</table>
+  <div class="zone-title">④ 情绪周期罗盘</div>
+  <svg viewBox="0 0 300 300" width="290" height="290" style="display:block;margin:0 auto;" role="img" aria-label="情绪周期罗盘"><defs><filter id="seg-glow" x="-45%" y="-45%" width="190%" height="190%"><feDropShadow stdDeviation="7" flood-color="#f0c75e" flood-opacity="0.85"/></filter></defs><g transform="translate(0.0,-10.0)" filter="url(#seg-glow)"><path d="M82.2,41.4 A128.0,128.0 0 0 1 217.8,41.4 L189.2,87.2 A74.0,74.0 0 0 0 110.8,87.2 Z" fill="#9b59b6" opacity="1" stroke="#f0c75e" stroke-width="2.5"/><text x="150.0" y="49.0" fill="#ffffff" font-size="15" font-weight="800" text-anchor="middle" dominant-baseline="middle" transform="rotate(0 150.0 49.0)">高潮期</text></g><g><path d="M232.3,51.9 A128.0,128.0 0 0 1 274.2,181.0 L221.8,167.9 A74.0,74.0 0 0 0 197.6,93.3 Z" fill="#77231a" opacity="0.52" stroke="rgba(255,255,255,.12)" stroke-width="1"/><text x="246.1" y="118.8" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" transform="rotate(72 246.1 118.8)">启动期</text></g><g><path d="M268.7,197.9 A128.0,128.0 0 0 1 158.9,277.7 L155.2,223.8 A74.0,74.0 0 0 0 218.6,177.7 Z" fill="#947b3a" opacity="0.52" stroke="rgba(255,255,255,.12)" stroke-width="1"/><text x="209.4" y="231.7" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" transform="rotate(324 209.4 231.7)">发酵期</text></g><g><path d="M141.1,277.7 A128.0,128.0 0 0 1 31.3,197.9 L81.4,177.7 A74.0,74.0 0 0 0 144.8,223.8 Z" fill="#8f9194" opacity="0.52" stroke="rgba(255,255,255,.12)" stroke-width="1"/><text x="90.6" y="231.7" fill="#16213e" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" transform="rotate(396 90.6 231.7)">冰点期</text></g><g><path d="M25.8,181.0 A128.0,128.0 0 0 1 67.7,51.9 L102.4,93.3 A74.0,74.0 0 0 0 78.2,167.9 Z" fill="#4e4e55" opacity="0.52" stroke="rgba(255,255,255,.12)" stroke-width="1"/><text x="53.9" y="118.8" fill="#2ecc71" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" transform="rotate(648 53.9 118.8)">退潮期</text></g><circle cx="150.0" cy="150.0" r="68.0" fill="#0d1836" stroke="#d4af37" stroke-width="2"/><circle cx="150.0" cy="150.0" r="63.0" fill="none" stroke="rgba(212,175,55,.35)" stroke-width="1"/><line x1="150.0" y1="141.0" x2="150.0" y2="94.0" stroke="#f0c75e" stroke-width="6.5" stroke-linecap="round"/><circle cx="150.0" cy="150.0" r="8" fill="#d4af37" stroke="#0d1836" stroke-width="2"/><text x="150.0" y="178.0" fill="#9b59b6" font-size="15" font-weight="800" text-anchor="middle">高潮期</text><text x="150.0" y="198.0" fill="#f0c75e" font-size="9.5" text-anchor="middle">夏季：情绪较热，防…</text></svg>
+  <div style="text-align:center;margin-top:8px;font-size:12.5px;color:var(--txt2);">昨日 <span style="color:#7f7f8a;font-weight:700;border:1px solid #7f7f8a;border-radius:9px;padding:1px 10px;font-size:12px;">退潮期</span> <span style="color:var(--gold2);font-weight:800;margin:0 6px;">⟶</span> 今日 <span style="color:#9b59b6;font-weight:700;border:1px solid #9b59b6;border-radius:9px;padding:1px 10px;font-size:12px;">高潮期</span></div>
+  <div style="margin-top:8px;font-size:11px;"><table class="plain"><tr style="color:var(--txt2);font-size:11px;"><td>阶段</td><td>情绪特点</td><td>对策要点</td></tr><tr ><td style="white-space:nowrap;width:62px;"><span style="color:#e8eaf0;font-weight:700;">冰点期</span></td><td style="color:var(--txt2);">涨停<30 / 跌停>15 / 高标≤2板, 亏钱效应极致</td><td style="color:var(--txt);">空仓观望或≤2成试错, 等待反转信号</td></tr><tr ><td style="white-space:nowrap;width:62px;"><span style="color:#c0392b;font-weight:700;">启动期</span></td><td style="color:var(--txt2);">3-4板龙头出现、涨停30-50, 情绪自冰点修复</td><td style="color:var(--txt);">≤3成轻仓跟随最强主线, 不追高</td></tr><tr ><td style="white-space:nowrap;width:62px;"><span style="color:#f0c75e;font-weight:700;">发酵期</span></td><td style="color:var(--txt2);">龙头≥5板、涨停50-95, 主线清晰梯队完整</td><td style="color:var(--txt);">5-7成主攻主线, 持有让利润奔跑</td></tr><tr style="background:rgba(212,175,55,.10);border-radius:8px;"><td style="white-space:nowrap;width:62px;"><span style="color:#9b59b6;font-weight:700;">🔔 高潮期</span></td><td style="color:var(--txt2);">涨停>95且龙头≥7板, 一致性亢奋</td><td style="color:var(--txt);">逐步兑现不追加, 防一致性反转</td></tr><tr ><td style="white-space:nowrap;width:62px;"><span style="color:#7f7f8a;font-weight:700;">退潮期</span></td><td style="color:var(--txt2);">跌停≥18或炸板率>40%, 高标断板亏钱扩散</td><td style="color:var(--txt);">≤4成取偏下, 只做最强避险梯队, 反抽即逃命</td></tr></table></div>
 </div>
-
-<h2>五、产业链观察 · mRNA 疫苗链</h2>
-<div class="flowbox">
-<div class="row"><b style="color:#e6c765">终端事件</b><span class="arr">→</span>
-<div class="node">mRNA 癌症疫苗三期达主要终点 → 全球管线有望密集跟进，上游物料需求前置放大</div></div>
-<div class="row"><b style="color:#e6c765">上游瓶颈</b><span class="arr">→</span>
-<div class="node">酶原料（聚合酶/加帽酶，海外厂商主导，行业增速约三成）</div>
-<div class="node">修饰核苷酸（高毛利环节）</div>
-<div class="node">LNP 脂质（专利壁垒+产能瓶颈，全球十数亿美元级市场）</div>
-<div class="node">个体化前端：肿瘤基因测序（每位患者定制）</div></div>
-<div class="row"><b style="color:#e6c765">中游</b><span class="arr">→</span>
-<div class="node">序列设计（AI 算法）+ 制剂组装（微流控设备）+ CDMO</div></div>
-<div class="mut">方法论备注：本次 A 股映射标的均未披露与相关海外药企的直接订单，产业链逻辑成立但业绩传导链较长，属于「技术突破+海外映射」型行情；上游国产化率低的环节弹性更大，但需要产能、市占率等一手数据逐家验证，不宜简单线性外推。相关数据若无法核实，应标注缺口而非推测。</div>
+    </div>
+  </div>
+  
+<div style="font-size:10.5px;line-height:1.9;color:var(--txt2);border-top:1px dashed var(--line);margin-top:14px;padding-top:8px;">
+  <b class="gold">使用说明</b>｜<span style="color:#ffffff;">股市的行情，是 新闻+盘面（资金）+情绪+未知力 共同绞动的，听风使舵，才省力！</span>
+  <span style="color:var(--red);">股市有风险，入市需谨慎，复盘日志旨在记录研究市场，不做任何推荐和承诺，据此操作，风险自付！</span>
 </div>
-
-<footer>
-<div class="disc">
-<b style="color:var(--gold2)">免责声明</b>
-<ol style="padding-left:18px;margin-top:8px">
-<li>本报告为 AI 系统基于公开信息自动生成的市场观察记录，仅供学习与研究参考。</li>
-<li>本报告不构成任何证券投资建议、投资咨询意见或买卖依据。</li>
-<li>文中数据来源于公开渠道，虽已尽力核验，仍可能存在误差或滞后，请以官方披露为准。</li>
-<li>市场有风险，投资需谨慎；任何据此操作产生的盈亏由行为人自行承担。</li>
-<li>文中提及的行业与板块逻辑仅为信息整理，不代表对任何证券的推荐。</li>
-<li>历史规律与案例对照不代表未来表现，统计样本有限，请勿机械套用。</li>
-</ol>
+  <footer class="foot">【温度公式】情绪温度 = clamp(0~100) round( 涨停家数×0.9 − 跌停家数×2 + (50−炸板率)×0.4 + 晋级率×0.2 )；缺某项则该项不计。本日代入：采用AI分析师正式盘后总控链路的持仓温度；不与旧版简图公式重复计算。取不到的字段显示「未获取」，本图所有数据忠于源文件，新闻→板块影响映射基于素材推断、未虚构新闻。</footer>
 </div>
-<div style="text-align:center">逆袭者·AI分析大师 · 2026-08-20 自动生成 · 公开版</div>
-</footer>
-</div>
-
-<script>
-const GOLD='#c9a227',GOLD2='#e6c765',RED='#e5534b',GREEN='#3fb27f',TXT='#dbe2f0',MUT='#8fa0c0';
-const base={backgroundColor:'transparent',textStyle:{color:TXT},tooltip:{trigger:'axis',backgroundColor:'#1a2749',borderColor:GOLD,textStyle:{color:TXT}}};
-function mk(id,opt){const el=document.getElementById(id);if(!el)return;const c=echarts.init(el);c.setOption(Object.assign({},base,opt));window.addEventListener('resize',()=>c.resize());}
-
-mk('c1',{title:{text:'主要指数涨跌幅（%）',textStyle:{color:GOLD2,fontSize:14},left:'center'},
-xAxis:{type:'category',data:['科创50','上证50','北证50','上证指数','深证成指','创业板指'],axisLabel:{color:TXT,interval:0,rotate:25},axisLine:{lineStyle:{color:MUT}}},
-yAxis:{type:'value',axisLabel:{color:MUT},splitLine:{lineStyle:{color:'#22305a'}}},
-series:[{type:'bar',barWidth:28,data:[-0.87,-0.49,-0.06,0.24,0.59,0.64].map(v=>({value:v,itemStyle:{color:v<0?GREEN:RED}})),label:{show:true,position:'top',color:TXT,formatter:'{c}%'}}]});
-
-mk('c2',{title:{text:'封板率 63.2%（涨停79/跌停11/炸板46）',textStyle:{color:GOLD2,fontSize:14},left:'center'},
-series:[{type:'gauge',min:0,max:100,center:['50%','60%'],radius:'85%',
-axisLine:{lineStyle:{width:14,color:[[0.6,'#3fb27f'],[0.8,GOLD],[1,RED]]}},
-pointer:{itemStyle:{color:GOLD2}},axisTick:{distance:-14,lineStyle:{color:'#0f172a'}},splitLine:{distance:-14,length:14,lineStyle:{color:'#0f172a'}},
-axisLabel:{color:MUT,distance:20,fontSize:10},detail:{valueAnimation:true,formatter:'{value}%',color:GOLD2,fontSize:22,offsetCenter:[0,'70%']},
-data:[{value:63.2}]}]});
-
-mk('c3',{title:{text:'热点板块涨停家数（医药一极独大）',textStyle:{color:GOLD2,fontSize:14},left:'center'},
-grid:{left:110,right:30,top:40,bottom:30},
-xAxis:{type:'value',axisLabel:{color:MUT},splitLine:{lineStyle:{color:'#22305a'}}},
-yAxis:{type:'category',data:['通信','房地产','大消费','机器人','医药(含疫苗)'],axisLabel:{color:TXT},axisLine:{lineStyle:{color:MUT}}},
-series:[{type:'bar',barWidth:20,data:[
-{value:3,itemStyle:{color:'#3a4a75'}},{value:3,itemStyle:{color:'#3a4a75'}},{value:6,itemStyle:{color:'#3a4a75'}},{value:7,itemStyle:{color:'#3a4a75'}},{value:38,itemStyle:{color:GOLD}}],
-label:{show:true,position:'right',color:TXT}}]});
-
-mk('c4',{title:{text:'题材线索热度评分（内部模型）',textStyle:{color:GOLD2,fontSize:14},left:'center'},
-grid:{left:130,right:30,top:40,bottom:30},
-xAxis:{type:'value',max:100,axisLabel:{color:MUT},splitLine:{lineStyle:{color:'#22305a'}}},
-yAxis:{type:'category',data:['地产链 56','机器人 63','mRNA疫苗/肿瘤免疫 82'],axisLabel:{color:TXT},axisLine:{lineStyle:{color:MUT}}},
-series:[{type:'bar',barWidth:20,data:[
-{value:56,itemStyle:{color:'#3a4a75'}},{value:63,itemStyle:{color:'#3a4a75'}},{value:82,itemStyle:{color:GOLD}}],
-label:{show:true,position:'right',color:TXT},
-markLine:{symbol:'none',lineStyle:{color:RED,type:'dashed'},label:{color:RED,formatter:'强势线75'},data:[{xAxis:75}]}}]});
-</script>
-</body>
-</html>
+<style>@media(max-width:980px){.mid3,.top3{grid-template-columns:1fr!important;}}</style></body></html>
