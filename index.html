@@ -1,506 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI分析师盘后核心简报 2026-10-14</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>逆袭者每日市场观察 · 2026-10-15</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
-:root{
-  --bg:#111315;--panel:#1b1d20;--panel2:#22252a;--line:#3b4048;
-  --text:#f1f5f9;--muted:#9ca3af;--soft:#cbd5e1;--gold:#f5c542;
-  --red:#ff4d4f;--green:#18c56e;--blue:#58a6ff;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.72;}
-main{max-width:1180px;margin:0 auto;padding:20px 18px 36px;}
-.top{background:#17191d;border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:12px;}
-h1{margin:0;font-size:26px;line-height:1.25;color:var(--gold);letter-spacing:0;}
-.sub{margin-top:8px;color:var(--muted);font-size:13px;}
-.section{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;}
-h2{font-size:19px;margin:0 0 12px;color:var(--gold);border-left:4px solid var(--gold);padding-left:10px;}
-h3{font-size:16px;margin:16px 0 8px;color:#ffffff;}
-h4{font-size:14px;margin:12px 0 6px;color:var(--soft);}
-p{margin:8px 0;color:var(--soft);font-size:14px;}
-.summary-line{font-size:16px;color:#fff;background:#24272d;border-left:4px solid var(--red);padding:8px 10px;border-radius:5px;}
-ul{margin:8px 0 8px 20px;padding:0;color:var(--soft);}
-li{margin:5px 0;}
-.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin:10px 0;background:#15171a;}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px;}
-th{background:#2a2e35;color:var(--gold);font-weight:700;text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);white-space:nowrap;}
-td{padding:8px 9px;border-bottom:1px solid #2d3138;color:var(--soft);vertical-align:top;}
-tr:nth-child(even) td{background:#1d2025;}
-tr:hover td{background:#242832;}
-strong,.hot{color:var(--gold);font-weight:700;}
-.warn{color:var(--red);font-weight:700;}
-code{color:#e5e7eb;background:#2a2e35;border:1px solid #444a55;border-radius:4px;padding:1px 5px;}
-@media(max-width:760px){main{padding:12px 8px 24px}h1{font-size:21px}.section{padding:12px}table{font-size:12px}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(160deg,#081120 0%,#0d1b2e 55%,#0a1424 100%);color:#d8dee9;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.75;padding:18px}
+.wrap{max-width:980px;margin:0 auto}
+.hero{background:linear-gradient(135deg,#12233d,#0e1c31);border:1px solid #c9a22755;border-radius:14px;padding:24px 28px;margin-bottom:18px}
+h1{font-size:24px;color:#e8c86a;letter-spacing:2px}
+.sub{color:#8fa3bf;font-size:13px;margin-top:8px}
+.card{background:#101f36cc;border:1px solid #22354f;border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card h2{font-size:16px;color:#e8c86a;border-left:4px solid #c9a227;padding-left:10px;margin-bottom:12px}
+p,li{font-size:13.5px;color:#c3cede}ul{padding-left:20px}li{margin-bottom:7px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:#101f36cc;border:1px solid #22354f;border-radius:10px;padding:13px;text-align:center}
+.kpi .v{font-size:20px;font-weight:700;color:#e8c86a}
+.kpi .l{font-size:12px;color:#8fa3bf;margin-top:4px}
+.chart{width:100%;height:280px}
+.gold{color:#e8c86a}.mut{color:#8fa3bf}
+.disc{background:#0e1a2c;border:1px solid #2b3a55;border-radius:12px;padding:16px 20px;font-size:12.5px;color:#7e90ac}
+.disc b{color:#a9bcd8}
+.foot{text-align:center;color:#5c6f8a;font-size:12px;margin-top:22px}
+@media(max-width:640px){h1{font-size:19px}.chart{height:230px}}
 </style>
 </head>
 <body>
-<main>
-<div class="top">
-<h1>AI分析师盘后核心简报</h1>
-<div class="sub">交易日：2026-10-14 · 简图风格展示版 · 原始 Markdown 同步归档</div>
+<div class="wrap">
+
+<div class="hero">
+  <h1>逆袭者每日市场观察 · 2026-10-15</h1>
+  <div class="sub">A股盘后结构化复盘（公开版）｜ 数据截至 2026-10-15 收盘 ｜ 来源：公开财经媒体收盘统计与公开新闻</div>
 </div>
+
+<div class="kpis">
+  <div class="kpi"><div class="v">-1.59%</div><div class="l">上证指数（险守3700）</div></div>
+  <div class="kpi"><div class="v">1.63万亿</div><div class="l">两市成交（放量2186亿）</div></div>
+  <div class="kpi"><div class="v">超5100家</div><div class="l">下跌家数</div></div>
+  <div class="kpi"><div class="v">-7.56%</div><div class="l">韩国KOSPI（当日两次熔断）</div></div>
+  <div class="kpi"><div class="v">-4.90%</div><div class="l">日经225</div></div>
+</div>
+
+<div class="card"><h2>一、市场状态</h2>
+<p>10月15日，受隔夜美股走弱与亚太市场集体崩盘拖累，A股低开低走：上证指数收跌1.59%报3707.48点，盘中一度跌破3700点整数关口（最低3698.32点）后尾盘收回；深证成指跌2.43%，创业板指跌2.92%进入年内新低区域。两市成交1.63万亿元，较上一交易日放量2186亿元，全市场超5100只个股下跌，为年内最极端的下跌宽度之一。当日外围冲击剧烈：韩国KOSPI指数收跌7.56%（年内第十次熔断、当日两度触发），两大半导体权重股重挫逾9%；日经225指数收跌4.90%。韩国金融监管机构午后召开紧急会议并发布稳定市场声明，亚太跌幅随后有所收窄。A股尾盘出现大资金托底迹象：主流宽基ETF成交急剧放大，其中一只沪深300ETF成交超190亿元，创今年1月下旬以来天量。</p></div>
+
+<div class="card"><h2>二、热点板块</h2>
 <ul>
-<li>产品版本：AI分析师 v8.0</li>
-<li>生成方式：脚本自动生成</li>
-<li>数据来源：2026-10-14 正式盘后总控链路</li>
-<li>下个交易日：2026-10-15</li>
-</ul>
-<section class='section'><h2>1. <span class='hot'>核心</span>总结</h2>
-<p class='summary-line'>【大势周期】冬季（18度），高低切换中，</p>
-<p class='summary-line'>【仓位】0-10%，</p>
-<p class='summary-line'>【方向】下个交易日，无可操作方向，只观察，<span class='warn'>不追高</span>。</p>
-</section>
-<section class='section'><h2>2. 大盘趋势 / 情绪周期</h2>
-<div class='table-wrap'><table><thead><tr>
-<th>项目</th>
-<th>结果</th>
-<th>解读</th>
-</tr></thead><tbody>
-<tr>
-<td>持仓温度</td>
-<td>18</td>
-<td>冬季：情绪偏冷，优先防守和等待</td>
-</tr>
-<tr>
-<td>上涨/下跌家数</td>
-<td>917 / 4213</td>
-<td>市场宽度偏弱</td>
-</tr>
-<tr>
-<td><span class='hot'>涨停</span>/<span class='warn'>跌停</span>家数</td>
-<td>39 / 11</td>
-<td>情绪需结合封板率</td>
-</tr>
-<tr>
-<td>封板率</td>
-<td>50%</td>
-<td>封板质量仅作辅助</td>
-</tr>
-<tr>
-<td>上证指数</td>
-<td>3767.23 / -0.88%</td>
-<td>指数方向参考</td>
-</tr>
-<tr>
-<td>深证成指</td>
-<td>12110.59 / -1.97%</td>
-<td>指数方向参考</td>
-</tr>
-<tr>
-<td>沪深两市成交额</td>
-<td>1.42万亿</td>
-<td>缩量2619.57亿（-15.61%）</td>
-</tr>
-<tr>
-<td>两市资金净流入</td>
-<td>-87.39亿</td>
-<td>资金环境偏防守</td>
-</tr>
-<tr>
-<td>来源日Top10<span class='hot'>留存</span></td>
-<td><span class='warn'>未获取</span></td>
-<td>存在<span class='hot'>留存</span>，需看<span class='hot'>核心</span>股<span class='hot'>承接</span></td>
-</tr>
-</tbody></table></div>
-<p class='paragraph'>情绪周期判断：冬季：<span class='warn'>退潮</span>/弱势，高低切换中。</p>
-</section>
-<section class='section'><h2>3. 仓位控制</h2>
-<div class='table-wrap'><table><thead><tr>
-<th>状态</th>
-<th>仓位建议</th>
-<th>执行动作</th>
-</tr></thead><tbody>
-<tr>
-<td>当前市场</td>
-<td>只观察</td>
-<td>不主动开新仓</td>
-</tr>
-<tr>
-<td>热点方向</td>
-<td>观察<span class='hot'>留存</span></td>
-<td>不追<span class='hot'>涨停</span></td>
-</tr>
-<tr>
-<td>若下个交易日板块继续<span class='hot'>留存</span></td>
-<td>等确认</td>
-<td>观察<span class='hot'>核心</span>股分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>若下个交易日继续大面积换新</td>
-<td>空仓或极低仓</td>
-<td>等下一轮明确<span class='hot'>主线</span></td>
-</tr>
-</tbody></table></div>
-<p class='paragraph'><span class='hot'>核心</span>纪律：没有板块<span class='hot'>留存</span>、没有<span class='hot'>核心</span>股守价、没有分歧<span class='hot'>承接</span>，不升级交易候选。</p>
-</section>
-<section class='section'><h2>4. 热点板块</h2>
-<p class='paragraph'>只列前1-3个方向。</p>
-<div class='table-wrap'><table><thead><tr>
-<th>排名</th>
-<th>热点板块</th>
-<th>当日涨幅</th>
-<th>状态</th>
-<th>明日动作</th>
-</tr></thead><tbody>
-<tr>
-<td>1</td>
-<td>AI应用（游戏传媒）</td>
-<td>2.53%</td>
-<td>局部扩散</td>
-<td>只观察，不交易</td>
-</tr>
-<tr>
-<td>2</td>
-<td>AI漫剧</td>
-<td>2.5%</td>
-<td>防御轮动/<span class='warn'>需验证</span></td>
-<td>只观察，不交易</td>
-</tr>
-<tr>
-<td>3</td>
-<td>煤炭石油</td>
-<td>1.67%</td>
-<td>防御轮动/<span class='warn'>需验证</span></td>
-<td>只观察，不交易</td>
-</tr>
-</tbody></table></div>
-</section>
-<section class='section'><h2>5. 各板块<span class='hot'>核心</span>个股</h2>
-<p class='paragraph'>每个板块最多列1-3只。若正式候选池没有给出个股，则只作风格观察。</p>
-<div class='table-wrap'><table><thead><tr>
-<th>板块</th>
-<th><span class='hot'>核心</span>个股</th>
-<th>代码</th>
-<th>当日角色</th>
-<th>观察价</th>
-<th>备注</th>
-</tr></thead><tbody>
-<tr>
-<td>AI应用（游戏传媒）</td>
-<td>富春股份</td>
-<td>300299</td>
-<td>板块<span class='hot'>核心</span>候选</td>
-<td>6.67</td>
-<td>上榜，单日净买入20416万；三日净买入18095万，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>AI应用（游戏传媒）</td>
-<td>果麦文化</td>
-<td>301052</td>
-<td>板块跟随候选</td>
-<td>33.04</td>
-<td>上榜，单日净卖出46万，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>AI应用（游戏传媒）</td>
-<td>掌阅科技</td>
-<td>603533</td>
-<td>板块跟随候选</td>
-<td>29.02</td>
-<td>未上榜，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>AI漫剧</td>
-<td>果麦文化</td>
-<td>301052</td>
-<td>板块<span class='hot'>核心</span>候选</td>
-<td>33.04</td>
-<td>上榜，单日净卖出46万，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>AI漫剧</td>
-<td>掌阅科技</td>
-<td>603533</td>
-<td>板块跟随候选</td>
-<td>29.02</td>
-<td>未上榜，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>AI漫剧</td>
-<td>芒果超媒</td>
-<td>300413</td>
-<td>板块跟随候选</td>
-<td>24.36</td>
-<td>未上榜，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>煤炭石油</td>
-<td>郑州煤电</td>
-<td>600121</td>
-<td>板块<span class='hot'>核心</span>候选</td>
-<td>5.68</td>
-<td>未上榜，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>煤炭石油</td>
-<td>中国海油</td>
-<td>600938</td>
-<td>板块跟随候选</td>
-<td>33.96</td>
-<td>未上榜，需看分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td>煤炭石油</td>
-<td>大有能源</td>
-<td>600403</td>
-<td>板块跟随候选</td>
-<td>7.25</td>
-<td>未上榜，需看分歧<span class='hot'>承接</span></td>
-</tr>
-</tbody></table></div>
-<h3>执行摘要</h3>
+<li><b class="gold">PCB（印制电路板）</b>：全天最强的逆势方向，板块内多只个股涨停，其中一只广东地区PCB企业走出19天11板的趋势行情并续创历史新高。本轮上涨的公开一手催化（涨价或订单级别的公告）暂未见披露，持续性有待验证。</li>
+<li><b class="gold">创新药</b>：超跌反弹方向，数家药企涨停，属于调整市中的防御性轮动，未见行业级新增催化。</li>
+<li><b class="gold">AI漫剧/传媒</b>：情绪型题材延续活跃，出现连续五日涨停的个股，但缺乏产业层面的收入或订单证据，属纯情绪接力。</li>
+<li><b class="gold">券商</b>：午后异动拉升，有个股回封涨停，与宽基ETF放量同属护盘资金动向信号。</li>
+<li>下跌方向：航运板块集体重挫（多家公司跌停）、煤炭大幅回调，CPO、存储芯片、消费电子等科技硬件方向延续大跌。</li>
+</ul></div>
+
+<div class="card"><h2>三、核心新闻</h2>
 <ul>
-<li>主看方向：AI应用/传媒。</li>
-<li>仓位：0-10%。</li>
-<li>操作状态：无可操作方向，只观察。</li>
-<li>触发条件：AI应用（游戏传媒）等相关板块至少2个留在Top10，<span class='hot'>核心</span>股多数守观察价，并出现分歧<span class='hot'>承接</span>。</li>
-<li><span class='warn'>放弃</span>条件：相关板块退出Top10，<span class='hot'>核心</span>股多数跌破观察价，只剩单股独涨，或数据质量降级。</li>
-</ul>
-</section>
-<section class='section'><h2>6. <span class='hot'>核心</span>题材 / 逻辑</h2>
-<h3>6.0 新闻事件瞭望台</h3>
+<li>美国9月CPI数据超预期，隔夜美股科技股走弱，成为本轮亚太调整的导火索。</li>
+<li>人工智能投资回报率争议升温、AI基础设施融资瓶颈显现，引发亚洲AI相关资产集体重挫（公开报道）。</li>
+<li>韩国KOSPI指数盘中一度跌超9%，年内第十次触发熔断；韩国金融委员会紧急召开会议并发表稳定市场声明。</li>
+<li>A股尾盘宽基ETF成交创阶段天量，显示大资金在整数关口附近托底意愿明确。</li>
+<li>A股市值第一易主：一家国产存储芯片龙头跌超4%后市值跌破3万亿元，国有大行重回市值榜首，折射市场风格向防御切换。</li>
+</ul></div>
+
+<div class="card"><h2>四、情绪定位</h2>
+<div id="c1" class="chart"></div>
+<p>按涨停家数、封板率、连板梯队与市场宽度综合评估，当前处于<b class="gold">退潮阶段</b>：全市场超5100只个股下跌，主要指数连续走弱并均位于10日均线下方，深证成指与创业板指单日跌幅双双超过2%。短线情绪呈现极端的"哑铃型"结构：一端是少数小市值题材股的连板抱团（最高连板5板），另一端是银行、券商与宽基ETF的权重护盘，而中间地带（科技成长、资源品、航运）全线承压。综合判断：<b>外围崩盘冲击尚未消化完毕，市场处于退潮期，防守优先；在海外市场企稳之前，盘中任何科技股反抽都更可能是下跌中继而非反转信号，不宜追涨</b>。</p></div>
+
+<div class="card"><h2>五、产业链观察</h2>
+<p>当日逆势走强的PCB方向，产业逻辑上属于"AI服务器需求→高多层板/HDI板供需→板厂稼动率与订单预期"的传导链。需要清醒区分的是：本轮上涨尚<b class="gold">未见到涨价或重大订单的一手公告证据</b>，更多体现为退潮环境下资金向少数高辨识度方向的抱团；且同属上游的覆铜板材料方向当日并未同步走强，链内分化明显。历史经验显示，缺乏一手证据的逆势热点在情绪退潮期的持续性通常较弱，次日承接力度是唯一可靠的验证窗口。另一方面，本周前期活跃的油运方向当日集体跌停，提示事件驱动型题材在系统性风险释放期的脆弱性。</p></div>
+
+<div class="card"><h2>六、后市关注</h2>
 <ul>
-<li>数据源：新闻快速汇总0条；四大题材证据台账4条；<span class='hot'>核心</span>简报题材摘要3条。</li>
-<li>入选<span class='hot'>核心</span>新闻：4条；完整台账见 <code>07-新闻事件瞭望台.md</code>。</li>
-<li>使用口径：新闻只作线索，必须与板块<span class='hot'>涨停</span>数、扩散、<span class='hot'>核心</span>股<span class='hot'>承接</span>和次日验证交叉确认。</li>
-</ul>
-<h3>6.1 四大题材 V4.0（近48小时）</h3>
-<div class='table-wrap'><table><thead><tr>
-<th>排名</th>
-<th>题材</th>
-<th>线索</th>
-<th>触发级别</th>
-<th>阶段</th>
-<th>评分/置信度</th>
-<th>结论</th>
-</tr></thead><tbody>
-<tr>
-<td>1</td>
-<td>AI应用/传媒</td>
-<td>盘面</td>
-<td><span class='warn'>未获取</span>/未触发</td>
-<td>观察</td>
-<td>58/低-中</td>
-<td>仅看板块扩散和<span class='hot'>核心</span>股<span class='hot'>承接</span>，<span class='warn'>不追高</span></td>
-</tr>
-<tr>
-<td>2</td>
-<td>油气/煤炭</td>
-<td>盘面</td>
-<td><span class='warn'>未获取</span>/未触发</td>
-<td>观察</td>
-<td>53/低-中</td>
-<td>需价格、政策或公告形成新变量</td>
-</tr>
-<tr>
-<td>3</td>
-<td>游戏/短剧分支</td>
-<td>盘面</td>
-<td><span class='warn'>未获取</span>/未触发</td>
-<td>观察</td>
-<td>50/低</td>
-<td>轮动快，不能以单日涨幅替代产业证据</td>
-</tr>
-</tbody></table></div>
-<ul>
-<li>来源：<code>F:\AI-fenxishi\09_输出报告\四大题材挖掘机-2026-10-14-v1.md</code></li>
-</ul>
-<h3>6.2 AI漫剧</h3>
-<p class='paragraph'>AI漫剧概念→中信证券研报称，短剧与漫剧加速成为主流内容消费形态，据QuestMobile，2026年7月红果短剧独立App日活达1.68亿，同比增长107%。海外市场方面，据短剧自习室微信公众号，GoodShort与DramaBox将战略合并，行业短期增长承压叠加AI内容供给扩张，推动头部平台整合资源，具备内容制作、投放及用户运营协同能力的平台有望强化竞争优势。</p>
-<h3>6.3 AI应用（游戏传媒）</h3>
-<ul>
-<li>当日涨幅：2.53%。</li>
-<li>扩散：上涨占比74.29%，类<span class='hot'>涨停</span>3只。</li>
-<li>交易理解：局部扩散，仍需次日<span class='hot'>留存</span>确认。</li>
-</ul>
-<h3>6.4 AI漫剧</h3>
-<ul>
-<li>当日涨幅：2.5%。</li>
-<li>扩散：上涨占比69.57%，类<span class='hot'>涨停</span>2只。</li>
-<li>交易理解：偏防御或轮动观察，暂不作为进攻<span class='hot'>主线</span>。</li>
-</ul>
-<h3>6.5 煤炭石油</h3>
-<ul>
-<li>当日涨幅：1.67%。</li>
-<li>扩散：上涨占比70.97%，类<span class='hot'>涨停</span>1只。</li>
-<li>交易理解：偏防御或轮动观察，暂不作为进攻<span class='hot'>主线</span>。</li>
-</ul>
-</section>
-<section class='section'><h2>7. 最热板块深度挖掘</h2>
-<p class='paragraph'>最热板块选择：AI应用（游戏传媒）。</p>
-<h3>7.1 <span class='hot'>紫苏叶</span>判断</h3>
-<div class='table-wrap'><table><thead><tr>
-<th>维度</th>
-<th>判断</th>
-</tr></thead><tbody>
-<tr>
-<td>对应方向</td>
-<td>AI应用/传媒</td>
-</tr>
-<tr>
-<td>条件1：Top3且同链≥2板块</td>
-<td>满足（AI应用（游戏传媒）、AI漫剧、网络游戏、文体传媒、短剧概念）</td>
-</tr>
-<tr>
-<td>条件2：连续<span class='hot'>留存</span></td>
-<td>不满足（未形成连续<span class='hot'>留存</span>）</td>
-</tr>
-<tr>
-<td>条件3：订单/涨价/扩产/认证催化</td>
-<td>不满足（未匹配本方向产业词及有效催化）</td>
-</tr>
-<tr>
-<td>条件4：实体瓶颈</td>
-<td>不满足</td>
-</tr>
-<tr>
-<td>条件5：上游未充分定价</td>
-<td><span class='warn'>未获取</span>（缺少估值、机构覆盖和区间涨幅数据）</td>
-</tr>
-<tr>
-<td>五条件入选结果</td>
-<td>不入选（普通热点）</td>
-</tr>
-<tr>
-<td>初筛硬度</td>
-<td>C</td>
-</tr>
-<tr>
-<td>交易含义</td>
-<td>按普通热点处理；不因首日<span class='hot'>涨停</span>潮直接追高</td>
-</tr>
-</tbody></table></div>
-<p class='paragraph'>结论：五条件只决定是否启动正式深挖；具体公司仍须通过不可替代、寡头、产能刚性和未充分定价四项硬标准。</p>
-<h3>7.2 <span class='hot'>核心</span>个股题材挖机</h3>
-<h4>富春股份 300299</h4>
-<div class='table-wrap'><table><thead><tr>
-<th>项目</th>
-<th>内容</th>
-</tr></thead><tbody>
-<tr>
-<td>最硬题材</td>
-<td>AI应用/传媒</td>
-</tr>
-<tr>
-<td>当日表现</td>
-<td>收6.88，涨幅20.07%</td>
-</tr>
-<tr>
-<td>观察价</td>
-<td>6.67</td>
-</tr>
-<tr>
-<td>龙虎榜</td>
-<td>上榜，单日净买入20416万；三日净买入18095万</td>
-</tr>
-<tr>
-<td>是否第一/唯一</td>
-<td><span class='warn'>未证实</span></td>
-</tr>
-<tr>
-<td>是否最受益</td>
-<td><span class='warn'>需验证</span></td>
-</tr>
-<tr>
-<td>交易条件</td>
-<td>板块继续<span class='hot'>留存</span>，个股守观察价，并出现有效分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td><span class='warn'>放弃</span>条件</td>
-<td>板块退出Top10，或个股跌破观察价，或只剩单股独涨</td>
-</tr>
-</tbody></table></div>
-<h4>果麦文化 301052</h4>
-<div class='table-wrap'><table><thead><tr>
-<th>项目</th>
-<th>内容</th>
-</tr></thead><tbody>
-<tr>
-<td>最硬题材</td>
-<td>AI应用/传媒</td>
-</tr>
-<tr>
-<td>当日表现</td>
-<td>收34.06，涨幅14.49%</td>
-</tr>
-<tr>
-<td>观察价</td>
-<td>33.04</td>
-</tr>
-<tr>
-<td>龙虎榜</td>
-<td>上榜，单日净卖出46万</td>
-</tr>
-<tr>
-<td>是否第一/唯一</td>
-<td><span class='warn'>未证实</span></td>
-</tr>
-<tr>
-<td>是否最受益</td>
-<td><span class='warn'>需验证</span></td>
-</tr>
-<tr>
-<td>交易条件</td>
-<td>板块继续<span class='hot'>留存</span>，个股守观察价，并出现有效分歧<span class='hot'>承接</span></td>
-</tr>
-<tr>
-<td><span class='warn'>放弃</span>条件</td>
-<td>板块退出Top10，或个股跌破观察价，或只剩单股独涨</td>
-</tr>
-</tbody></table></div>
-<h3>7.3 <span class='hot'>涨停</span>5强</h3>
-<ul>
-<li>来源定位：侦查数据汇总 / <span class='hot'>Z15</span><span class='hot'>涨停</span>挖掘。</li>
-<li><span class='hot'>Z15</span><span class='hot'>涨停</span>挖掘：<span class='warn'>未获取</span>。原因：当天 <span class='hot'>Z15</span> 每日快照不存在；不使用旧日期数据补齐。</li>
-</ul>
-</section>
-<section class='section'><h2>8. 潜在<span class='warn'>风险</span></h2>
-<div class='table-wrap'><table><thead><tr>
-<th><span class='warn'>风险</span></th>
-<th>说明</th>
-<th>处理</th>
-</tr></thead><tbody>
-<tr>
-<td>市场宽度弱</td>
-<td>上涨917家、下跌4213家</td>
-<td>降低所有方向仓位级别</td>
-</tr>
-<tr>
-<td><span class='warn'>跌停</span>压力</td>
-<td><span class='warn'>跌停</span>11家</td>
-<td><span class='warn'>不追高</span>，不做弱转强幻想</td>
-</tr>
-<tr>
-<td>热点<span class='hot'>留存</span>不足</td>
-<td>来源日Top10<span class='hot'>留存</span><span class='warn'>未获取</span></td>
-<td>新热点必须经过次日验证</td>
-</tr>
-<tr>
-<td>产业证据不足</td>
-<td>业务弹性、收入占比、不可替代性未自动核验</td>
-<td>写<span class='warn'>需验证</span>，不写最受益</td>
-</tr>
-</tbody></table></div>
-</section>
-<section class='section'><h2>9. 次日预判与验证清单</h2>
-<h3>9.1 次日预判（2026-10-15）</h3>
-<ul>
-<li>市场预判：冬季环境下，基准情形为弱势震荡与高低切换，防御方向可能轮动，但不预设反转。</li>
-<li>热点预判：AI应用（游戏传媒）只有在板块继续<span class='hot'>留存</span>、内部维持扩散、<span class='hot'>核心</span>股多数守价时，才可判为弱修复；当前不预判为题材延续。</li>
-<li>个股预判：<span class='hot'>核心</span>股若只有一只继续强、板块未扩散，按单股独涨处理；若多数跌破观察价，按<span class='warn'>退潮</span>处理。</li>
-<li>交易结论：无可操作方向，只观察，仓位0-10%；等待真实盘面触发，<span class='warn'>不追高</span>。</li>
-</ul>
-<h3>9.2 盘后验证清单</h3>
-<p class='paragraph'>1. AI应用（游戏传媒）是否继续留在Top10。</p>
-<p class='paragraph'>2. AI应用（游戏传媒）内部是否仍有3只以上类<span class='hot'>涨停</span>股。</p>
-<p class='paragraph'>3. <span class='hot'>核心</span>候选股是否多数守住观察价。</p>
-<p class='paragraph'>4. 龙虎榜净买入个股次日是否有<span class='hot'>承接</span>。</p>
-<p class='paragraph'>5. 若Top10再次大面积换新，继续判定轮动加快，不做交易升级。</p>
-<p class='paragraph'>免责声明：本简报仅用于复盘训练和交易计划记录，不构成投资建议。</p>
-</section>
-</main>
+<li>海外市场企稳情况：今夜美股走势与明早日韩开盘方向，是判断本轮外围冲击是否结束的首要信号；韩国救市措施的后续落地值得跟踪。</li>
+<li>沪指3700点整数关口：今日尾盘收回，若再度失守且伴随放量，需防范调整进一步加深。</li>
+<li>题材抱团的持续性：PCB方向领涨股能否维持强势、板块涨停家数能否延续，决定逆势热点的生死；一旦领涨股高位大幅回落，需警惕抱团瓦解的连锁反应。</li>
+<li>护盘资金的持续性：宽基ETF天量与券商异动能否延续，是权重托底可信度的观察点。</li>
+</ul></div>
+
+<div class="disc"><b>免责声明</b><br>
+1、本报告仅为公开市场信息的结构化整理与个人研究复盘，不构成任何证券买卖建议或投资顾问服务。<br>
+2、文中涉及的行业、板块与题材分析基于公开信息，不保证信息的完整性与准确性，相关数据以交易所及官方披露为准。<br>
+3、股市有风险，投资需谨慎；任何依据本报告内容进行的投资操作，风险与后果由投资者自行承担。<br>
+4、本报告不点名推荐任何具体证券，文中不涉及任何证券的买卖价位指引；提及的板块现象仅为市场客观描述。<br>
+5、短线题材炒作波动剧烈，名称联想类炒作无基本面支撑，请投资者注意风险、理性参与。<br>
+6、本报告版权归作者所有，转载请注明出处；禁止将本报告内容用于任何商业荐股用途。</div>
+
+<div class="foot">逆袭者·AI分析大师 ｜ 每日市场观察（公开版）｜ 2026-10-15</div>
+</div>
+
+<script>
+const gold='#c9a227',blue='#3a6ea5',axisC='#5c6f8a';
+function mk(id,opt){const el=document.getElementById(id);const c=echarts.init(el);c.setOption(opt);window.addEventListener('resize',()=>c.resize());}
+mk('c1',{backgroundColor:'transparent',series:[{type:'gauge',min:0,max:100,radius:'92%',center:['50%','62%'],axisLine:{lineStyle:{width:14,color:[[0.3,'#ff5c5c'],[0.5,'#c9a227'],[0.75,'#3a6ea5'],[1,'#3ddc84']]}},pointer:{itemStyle:{color:'#e8c86a'}},axisTick:{distance:-14,length:4,lineStyle:{color:'#fff',width:1}},splitLine:{distance:-14,length:14,lineStyle:{color:'#fff',width:2}},axisLabel:{color:axisC,distance:18,fontSize:10},detail:{valueAnimation:true,formatter:v=>v+'°\n退潮期',color:'#e8c86a',fontSize:20,offsetCenter:[0,'72%']},data:[{value:18}]}]});
+</script>
 </body>
 </html>
